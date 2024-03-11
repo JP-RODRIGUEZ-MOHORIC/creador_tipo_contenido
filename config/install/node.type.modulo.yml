@@ -1,0 +1,16 @@
+# node.type.event.yml
+# This file will inform Drupal that it should create a new content type.
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - creador_tipo_contenido # This is the name of the module we're using for this example
+name: 'Contenido del Módulo'
+type: modulo
+description: 'Tipo de contenido creado a partir de un módulo.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: TRUE
+

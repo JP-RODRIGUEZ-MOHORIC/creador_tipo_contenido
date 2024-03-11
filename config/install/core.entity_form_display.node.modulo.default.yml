@@ -1,0 +1,25 @@
+# core.entity_form_display.node.car_brand.default.yml
+# This file tells Drupal how the form should be displayed when creating a new node of our custom content type.
+langcode: es
+status: true
+dependencies:
+    config:
+        - field.field.node.modulo.body
+        - node.type.modulo
+    module:
+        - text
+        - user
+id: node.modulo.default
+targetEntityType: node
+bundle: modulo
+mode: default
+content:
+    body:
+        label: hidden
+        type: text_textarea_with_summary
+        weight: 101
+        settings: {  }
+        third_party_settings: {  }
+    links:
+        weight: 100
+hidden: {  }

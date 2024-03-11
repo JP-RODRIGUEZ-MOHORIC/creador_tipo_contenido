@@ -1,0 +1,52 @@
+<?php
+
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Implements hook_install().
+ */
+function creador_tipo_contenido_install() {
+  // Define los detalles del tipo de contenido.
+  $type = [
+    'type' => 'modulo', 
+    'name' => 'Contenido del Módulo',
+    'description' => 'Tipo de contenido creado a partir de un módulo.',
+    'display_submitted' => TRUE,
+    'status' => TRUE,
+    'new_revision' => TRUE,
+  ];
+
+  // Crea el tipo de contenido.
+  $node_type = NodeType::create($type);
+  $node_type->save();
+}
+  function creador_tipo_contenido_uninstall()
+{
+  creador_tipo_contenido_delete_modulo_nodes();
+}
+
+function creador_tipo_contenido_delete_modulo_nodes()
+{
+  $nids = \Drupal::entityQuery('node')
+    ->condition('type', 'modulo')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (!empty($nids))
+  {
+    $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
+    $nodes = $storage_handler->loadMultiple($nids);
+
+    foreach ($nodes as $node)
+    {
+      $node->delete();
+    }
+
+    \Drupal::messenger()->addMessage(t('Se han eliminado los nodos de tipo <i>modulo</i>.'));
+  }
+  else
+  {
+    \Drupal::messenger()->addMessage(t('No se han encontrado nodos de tipo <i>modulo</i> para eliminar.'));
+  }
+}
+

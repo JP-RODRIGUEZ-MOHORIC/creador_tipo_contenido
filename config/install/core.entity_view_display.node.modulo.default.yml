@@ -1,0 +1,26 @@
+# core.entity_view_display.node.event.default.yml
+# This file tells Drupal how the content of our custom content type should be displayed by default.
+langcode: es
+status: true
+dependencies:
+    config:
+        - field.field.node.modulo.body
+        - node.type.modulo
+    module:
+        - text
+        - user
+id: node.modulo.default
+targetEntityType: node
+bundle: modulo
+mode: default
+content:
+    body:
+        label: hidden
+        type: text_default
+        weight: 101
+        settings: {  }
+        third_party_settings: {  }
+    links:
+        weight: 100
+hidden: {  }
+

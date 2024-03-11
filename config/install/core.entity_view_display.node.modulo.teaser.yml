@@ -1,0 +1,27 @@
+# core.entity_view_display.node.event.teaser.yml
+#This file tells Drupal how the teaser of our custom content type should be displayed.
+langcode: es
+status: true
+dependencies:
+    config:
+        - core.entity_view_mode.node.teaser
+        - field.field.node.modulo.body
+        - node.type.modulo
+    module:
+        - text
+        - user
+id: node.event.teaser
+targetEntityType: node
+bundle: modulo
+mode: teaser
+content:
+    body:
+        label: hidden
+        type: text_summary_or_trimmed
+        weight: 101
+        settings:
+            trim_length: 600
+        third_party_settings: {  }
+    links:
+        weight: 100
+hidden: {  }
