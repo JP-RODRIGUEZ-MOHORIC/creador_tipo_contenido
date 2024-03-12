@@ -1,7 +1,7 @@
 name: 'Creador de tipo de Contenido'
 type: module
 description: 'módulo que crea un tipo de contenido'
-core_version_requirement: ^8 || ^9 
+core_version_requirement: ^8 || ^9 || ^10
 package: 'Creación de contenido'
 version: '0.1'
 dependencies:
